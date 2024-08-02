@@ -15,7 +15,7 @@
 %
 %
 %   %%%%%%% comment %%%%%%%
-%   This is the 1-Dimensional Finite Difference Time Derivative(FDTD)
+%   This is the 1-Dimensional Finite Difference Time Domain(FDTD)
 %   vocal track simulation.
 %   The vocal tract is treated as multiple tubes connected to each other,
 %   with wall oscillation(loss), radiation loss and nasal coupling.
@@ -26,12 +26,18 @@
 %   following parts.
 %   1. E_p: the energy stored in pressure term
 %   2. E_v: the energy stored in velocity term
-%   3. E_rad_loss: the energy loss at boundary in time (should be power)
-%   4. E_rad_osc: the energy stored at the boundary (as an inductance)
+%   3. E_rad_loss: the energy loss at boundary in time (should be power),
+%                  controlled by "a1"
+%   4. E_rad_osc: the energy stored at the boundary (as an inductance).
+%                  controlled by "a2"
+%   5. E_m_w: the energy stored at wall mass, controlled by m_w
+%   6. E_b_w: the energy loss at wall damper in time (should be power), 
+%                 controlled by b_w
+%   7. E_k_w: the energy stored at wall stiffness, controlled by k_w
 %
-%
-%
-%
+%   To set the system lossless, b_w and a1 should be 0 (b_w ~ line 100
+%                                                        a1 ~ line 220)
+%   To see the inpulse-response, set the input to be delta function (~line 170)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
